@@ -45,7 +45,7 @@ NUC_NAME = {A: "A", C: "C", G: "G", U: "U"}
 
 async def settle(dut):
     """wait for comb logic to settle after clock edge"""
-    await Timer(1, unit="ns")
+    await Timer(100, unit="ns")
 
 
 async def reset(dut):
@@ -255,6 +255,11 @@ async def test_continuous_streaming(dut):
 
     dut.ui_in.value = 0
     await ClockCycles(dut.clk, 1)
+
+    await settle(dut)
+    rdy = (int(dut.uo_out.value) >> 6) & 1
+    if rdy:
+        results.append(int(dut.uo_out.value) & 0x1F)
 
     assert results == expected, f"Streaming: got {results}, expected {expected}"
     dut._log.info("PASS: continuous streaming")
