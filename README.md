@@ -1,6 +1,17 @@
-![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
+![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg)
 
-# Tiny Tapeout Verilog Project Template
+# DNA Codon Translator
+
+If we wanted to be fancy, we can call this a silicon ribosome.
+
+Cells translate RNA into proteins using ribosomes. This chip does the same thing, just in ~167 x 108 µm of digital logic instead of ~25 nm of molecular systems.
+You put in a stream of 2-bit nucleotides, and digital logic will group them into codons, look up the matching amino acid, and track open reading frames
+
+This happens synchronously, one codon per three shift-enable pulses.
+
+## Quick Biology Background
+
+
 
 - [Read the documentation for project](docs/info.md)
 
